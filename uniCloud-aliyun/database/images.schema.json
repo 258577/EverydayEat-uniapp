@@ -1,0 +1,68 @@
+{
+    "bsonType": "object",
+    "required": [
+        "name",
+        "url",
+        "create_date"
+    ],
+    "permission": {
+        "read": true,
+        "create": "auth.uid != null",
+        "update": "auth.uid != null",
+        "delete": "doc.creator_id == auth.uid"
+    },
+    "properties": {
+        "_id": {
+            "description": "图片ID，系统自动生成"
+        },
+        "name": {
+            "bsonType": "string",
+            "description": "图片名称",
+            "title": "图片名称"
+        },
+        "title": {
+            "bsonType": "string",
+            "description": "图片展示标题，用于按钮显示",
+            "title": "展示标题"
+        },
+        "url": {
+            "bsonType": "string",
+            "description": "图片云存储路径",
+            "title": "图片路径"
+        },
+        "buttonColor": {
+            "bsonType": "string",
+            "description": "按钮颜色",
+            "title": "按钮颜色"
+        },
+        "category": {
+            "bsonType": "string",
+            "description": "图片分类",
+            "title": "图片分类"
+        },
+        "description": {
+            "bsonType": "string",
+            "description": "图片描述",
+            "title": "图片描述"
+        },
+        "creator_id": {
+            "bsonType": "string",
+            "description": "创建者ID",
+            "foreignKey": "users._id"
+        },
+        "create_date": {
+            "bsonType": "timestamp",
+            "description": "创建时间",
+            "defaultValue": {
+                "$env": "now"
+            }
+        },
+        "update_date": {
+            "bsonType": "timestamp",
+            "description": "更新时间",
+            "defaultValue": {
+                "$env": "now"
+            }
+        }
+    }
+}

@@ -1,0 +1,150 @@
+{
+    "bsonType": "object",
+    "required": [
+        "menu_id",
+        "creator_id",
+        "create_date"
+    ],
+    "permission": {
+        "read": "doc.menu_id == auth.uid || doc.participants.includes(auth.uid)",
+        "create": "auth.uid != null",
+        "update": "doc.creator_id == auth.uid",
+        "delete": "doc.creator_id == auth.uid"
+    },
+    "properties": {
+        "_id": {
+            "description": "订单ID，系统自动生成"
+        },
+        "order_no": {
+            "bsonType": "string",
+            "description": "订单编号"
+        },
+        "menu_id": {
+            "bsonType": "string",
+            "description": "关联的菜单ID",
+            "foreignKey": "menu._id"
+        },
+        "menu_name": {
+            "bsonType": "string",
+            "description": "菜单名称"
+        },
+        "creator_id": {
+            "bsonType": "string",
+            "description": "创建者ID",
+            "foreignKey": "users._id"
+        },
+        "creator_info": {
+            "bsonType": "object",
+            "description": "创建者信息",
+            "properties": {
+                "nickname": {
+                    "bsonType": "string",
+                    "description": "创建者昵称"
+                },
+                "avatar": {
+                    "bsonType": "string",
+                    "description": "创建者头像"
+                }
+            }
+        },
+        "participants": {
+            "bsonType": "array",
+            "description": "参与用户ID列表",
+            "items": {
+                "bsonType": "string",
+                "foreignKey": "users._id"
+            }
+        },
+        "participants_info": {
+            "bsonType": "array",
+            "description": "参与用户信息列表",
+            "items": {
+                "bsonType": "object",
+                "properties": {
+                    "user_id": {
+                        "bsonType": "string",
+                        "description": "用户ID"
+                    },
+                    "nickname": {
+                        "bsonType": "string",
+                        "description": "用户昵称"
+                    },
+                    "avatar": {
+                        "bsonType": "string",
+                        "description": "用户头像"
+                    }
+                }
+            }
+        },
+        "items": {
+            "bsonType": "array",
+            "description": "订单项列表",
+            "items": {
+                "bsonType": "object",
+                "properties": {
+                    "dish_id": {
+                        "bsonType": "string",
+                        "description": "菜品ID"
+                    },
+                    "name": {
+                        "bsonType": "string",
+                        "description": "菜品名称"
+                    },
+                    "image": {
+                        "bsonType": "string",
+                        "description": "菜品图片"
+                    },
+                    "price": {
+                        "bsonType": "number",
+                        "description": "菜品价格"
+                    },
+                    "count": {
+                        "bsonType": "int",
+                        "description": "菜品数量"
+                    },
+                    "subtotal": {
+                        "bsonType": "number",
+                        "description": "小计"
+                    },
+                    "user_id": {
+                        "bsonType": "string",
+                        "description": "点餐用户ID",
+                        "foreignKey": "users._id"
+                    },
+                    "nickname": {
+                        "bsonType": "string",
+                        "description": "点餐用户昵称"
+                    }
+                }
+            }
+        },
+        "total_price": {
+            "bsonType": "number",
+            "description": "订单总价"
+        },
+        "status": {
+            "bsonType": "int",
+            "description": "订单状态：0-已提交，1-加菜中，2-已完成",
+            "defaultValue": 0
+        },
+        "is_additional": {
+            "bsonType": "bool",
+            "description": "是否加菜订单",
+            "defaultValue": false
+        },
+        "create_date": {
+            "bsonType": "timestamp",
+            "description": "创建时间",
+            "defaultValue": {
+                "$env": "now"
+            }
+        },
+        "update_date": {
+            "bsonType": "timestamp",
+            "description": "更新时间",
+            "defaultValue": {
+                "$env": "now"
+            }
+        }
+    }
+}

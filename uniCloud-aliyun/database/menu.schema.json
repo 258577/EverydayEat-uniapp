@@ -1,0 +1,150 @@
+{
+    "bsonType": "object",
+    "required": [
+        "name",
+        "creator_id",
+        "create_date"
+    ],
+    "permission": {
+        "read": true,
+        "create": "auth.uid != null",
+        "update": "doc.creator_id == auth.uid || doc.participants.includes(auth.uid)",
+        "delete": "doc.creator_id == auth.uid"
+    },
+    "properties": {
+        "_id": {
+            "description": "菜单ID，系统自动生成"
+        },
+        "name": {
+            "bsonType": "string",
+            "description": "菜单名称，自动生成为'今日日期+菜单'",
+            "title": "菜单名称"
+        },
+        "creator_id": {
+            "bsonType": "string",
+            "description": "创建者ID",
+            "foreignKey": "users._id"
+        },
+        "creator_info": {
+            "bsonType": "object",
+            "description": "创建者信息",
+            "properties": {
+                "nickname": {
+                    "bsonType": "string",
+                    "description": "创建者昵称"
+                },
+                "avatar": {
+                    "bsonType": "string",
+                    "description": "创建者头像"
+                }
+            }
+        },
+        "participants": {
+            "bsonType": "array",
+            "description": "参与用户ID列表",
+            "items": {
+                "bsonType": "string",
+                "foreignKey": "users._id"
+            }
+        },
+        "participants_info": {
+            "bsonType": "array",
+            "description": "参与用户信息列表",
+            "items": {
+                "bsonType": "object",
+                "properties": {
+                    "user_id": {
+                        "bsonType": "string",
+                        "description": "用户ID"
+                    },
+                    "nickname": {
+                        "bsonType": "string",
+                        "description": "用户昵称"
+                    },
+                    "avatar": {
+                        "bsonType": "string",
+                        "description": "用户头像"
+                    }
+                }
+            }
+        },
+        "categories": {
+            "bsonType": "array",
+            "description": "菜品类型列表",
+            "items": {
+                "bsonType": "object",
+                "properties": {
+                    "category_id": {
+                        "bsonType": "string",
+                        "description": "类型ID"
+                    },
+                    "name": {
+                        "bsonType": "string",
+                        "description": "类型名称"
+                    }
+                }
+            }
+        },
+        "dishes": {
+            "bsonType": "array",
+            "description": "菜品列表",
+            "items": {
+                "bsonType": "object",
+                "properties": {
+                    "dish_id": {
+                        "bsonType": "string",
+                        "description": "菜品ID"
+                    },
+                    "category_id": {
+                        "bsonType": "string",
+                        "description": "所属类型ID"
+                    },
+                    "name": {
+                        "bsonType": "string",
+                        "description": "菜品名称"
+                    },
+                    "image": {
+                        "bsonType": "string",
+                        "description": "菜品图片"
+                    },
+                    "description": {
+                        "bsonType": "string",
+                        "description": "菜品简介"
+                    },
+                    "price": {
+                        "bsonType": "number",
+                        "description": "菜品价格"
+                    },
+                    "create_user_id": {
+                        "bsonType": "string",
+                        "description": "添加该菜品的用户ID",
+                        "foreignKey": "users._id"
+                    }
+                }
+            }
+        },
+        "status": {
+            "bsonType": "int",
+            "description": "菜单状态：0-进行中，1-已提交，2-已完成",
+            "defaultValue": 0
+        },
+        "share_code": {
+            "bsonType": "string",
+            "description": "分享邀请码"
+        },
+        "create_date": {
+            "bsonType": "timestamp",
+            "description": "创建时间",
+            "defaultValue": {
+                "$env": "now"
+            }
+        },
+        "update_date": {
+            "bsonType": "timestamp",
+            "description": "更新时间",
+            "defaultValue": {
+                "$env": "now"
+            }
+        }
+    }
+}

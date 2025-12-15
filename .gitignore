@@ -1,0 +1,27 @@
+# 忽略node_modules目录
+node_modules/
+# 忽略unpackage目录
+unpackage/
+# 忽略HBuilderX项目配置文件
+.hbuilderx/
+# 忽略本地配置文件
+*.local.json
+# 忽略日志文件
+logs/
+*.log
+# 忽略临时文件
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+# 忽略编译生成的文件
+dist/
+# 忽略IDE配置文件
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
