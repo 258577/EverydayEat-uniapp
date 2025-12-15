@@ -1,4 +1,4 @@
-# EverydayFood - 家庭菜单管理系统
+# EverydayFood - 自助菜单小程序
 
 一个基于 uni-app 开发的微信小程序，用于菜单创建、菜品管理和在线下单模拟，帮助用户轻松解决「今天吃什么」的问题。
 
@@ -79,13 +79,33 @@ EverydayFood 是一款专为饭搭子间设计的菜单管理小程序，主要�
 └── uni_modules/                # uni-app 插件
 ```
 
-## 快速开始
-
 ### 环境要求
 
 - HBuilderX 3.0+
 - 微信开发者工具
 - uniCloud 开发者账号
+
+### 页面截图
+## 首页
+<img width="375" height="791" alt="微信图片_20251215162205_131_6" src="https://github.com/user-attachments/assets/2a13a494-fb5b-4ba0-94db-8fa40ba6cae9" />
+<img width="365" height="794" alt="微信图片_20251215162205_132_6" src="https://github.com/user-attachments/assets/a03a8c68-3df3-4827-957e-64ef7f747295" />
+
+## 菜单页&订单页
+<img width="359" height="790" alt="微信图片_20251215162205_125_6" src="https://github.com/user-attachments/assets/b695ed8a-8fcc-4dec-8d55-7fdfe4006d74" />
+<img width="365" height="786" alt="微信图片_20251215162205_126_6" src="https://github.com/user-attachments/assets/5caf53d6-6408-4739-a16b-4cfaa1c20e26" />
+<img width="369" height="786" alt="微信图片_20251215162205_127_6" src="https://github.com/user-attachments/assets/6fd39b82-9f32-41d7-9a37-6a65c63188ff" />
+<img width="375" height="798" alt="微信图片_20251215162205_128_6" src="https://github.com/user-attachments/assets/c9797a2d-68f9-4abc-ae83-fe36f56878c6" />
+<img width="375" height="789" alt="微信图片_20251215162205_129_6" src="https://github.com/user-attachments/assets/cd091b26-f5ad-4d9b-93e9-3a9c52d96bf4" />
+<img width="375" height="790" alt="微信图片_20251215162205_130_6" src="https://github.com/user-attachments/assets/9246e979-780d-425d-835a-6d27d96607ce" />
+
+## 工具页
+<img width="366" height="785" alt="微信图片_20251215162205_133_6" src="https://github.com/user-attachments/assets/eeba6a6c-6b86-439f-8a91-9ab923ae7818" />
+<img width="366" height="790" alt="微信图片_20251215165433_137_6" src="https://github.com/user-attachments/assets/ec0d3cb4-3a99-4f03-a93e-ee388a658b52" />
+
+## 个人页
+<img width="369" height="790" alt="微信图片_20251215162207_134_6" src="https://github.com/user-attachments/assets/c0470380-3dc3-4e1f-813d-486ee4308284" />
+<img width="376" height="798" alt="微信图片_20251215162207_136_6" src="https://github.com/user-attachments/assets/c731941f-82bc-4495-9d37-5ea2c1272384" />
+
 
 ### 安装步骤
 
