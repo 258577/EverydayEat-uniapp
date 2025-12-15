@@ -110,9 +110,6 @@ EverydayFood 是一款专为饭搭子间设计的菜单管理小程序，主要�
 ### 安装步骤
 
 1. 克隆项目到本地
-   ```bash
-   git clone <repository-url>
-   ```
 
 2. 打开 HBuilderX，导入项目
 
